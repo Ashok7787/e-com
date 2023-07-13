@@ -1,8 +1,12 @@
 import * as types from "./UserActionTypes";
 const initialState = {
-    logging: false,
-    loginError: false,
-    user: {},
+  logging: false,
+  loginError: false,
+  user: {},
+
+  fetchingUserDetails: false,
+  fetchingUserDetailsError: false,
+  userDetails: {},
 };
 export const userReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -15,7 +19,18 @@ export const userReducer = (state = initialState, action) => {
       };
     case types.LOGIN_FAILURE:
       return { ...state, logging: false, loginError: true };
-    
+
+    case types.USER_DETAILS_REQUEST:
+      return { ...state, fetchingUserDetails: true };
+    case types.USER_DETAILS_SUCCESS:
+      return {
+        ...state,
+        fetchingUserDetails: false,
+        userDetails: action.payload,
+      };
+
+    case types.USER_DETAILS_FAILURE:
+      return { ...state, fetchingUserDetails: false, fetchingUserDetailsError: true };
 
     default:
       return state;

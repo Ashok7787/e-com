@@ -4,7 +4,11 @@
 .App {
   text-align: center;
 }
-
+.vl {
+  border-left: 1px solid red;
+  height: 30px;
+  margin-right: 5px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
