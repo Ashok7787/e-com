@@ -6,6 +6,7 @@ import NotFound from "./container/Auth/NotFound";
 import MainApp from "./container/Main/MainApp";
 import { connect } from "react-redux";
 import Dashboard from "./container/Dashboard/Dashboard";
+import CategoryBookById from "./container/Category/CategoryBookById";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route exact path="/" element={<MainApp />} />
           <Route exact path="/dashboard" element={<Dashboard />} />
           <Route exact path="/signin" element={<SignIn />} />
+          <Route exact path="/category/:_id" element={<CategoryBookById />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>
