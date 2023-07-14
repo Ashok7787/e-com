@@ -2,17 +2,17 @@ import { Card, Space } from "antd";
 import React from "react";
 const { Meta } = Card;
 
-function Book(props) {
+function HomeBook(props) {
   const item = props.item;
- // console.log("single",item);
+  console.log("single",item);
   return (
     <>
     <div className="shadow-black shadow-sm">
       
         <div
           style={{
-           // borderWidth: "1px",
-          //  borderColor: "red",
+            borderWidth: "1px",
+            borderColor: "red",
             height: "170px",
             width: "100px",
           }}
@@ -33,4 +33,4 @@ function Book(props) {
   );
 }
 
-export default Book;
+export default HomeBook;
