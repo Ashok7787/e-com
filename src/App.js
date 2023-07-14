@@ -7,10 +7,14 @@ import MainApp from "./container/Main/MainApp";
 import { connect } from "react-redux";
 import Dashboard from "./container/Dashboard/Dashboard";
 import CategoryBookById from "./container/Category/CategoryBookById";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <div className="App">
+      <header>
+        <Navbar />
+      </header>
       <Router>
         <Routes>
           <Route exact path="/" element={<MainApp />} />

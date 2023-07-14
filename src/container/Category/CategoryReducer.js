@@ -6,7 +6,7 @@ const initialState = {
 
   fetchingBookListById: false,
   fetchingBookListByIdError: false,
-  bookListById:[],
+  bookList:[],
 
 };
 export const categoryReducer = (state = initialState, action) => {
@@ -33,7 +33,7 @@ export const categoryReducer = (state = initialState, action) => {
       return {
         ...state,
         fetchingBookListById: false,
-        bookListById: action.payload,
+        bookList: action.payload,
       };
 
     case types.GET_BOOK_LIST_BY_ID_FAILURE:

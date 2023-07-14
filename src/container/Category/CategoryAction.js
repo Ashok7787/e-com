@@ -25,12 +25,12 @@ export const getCategoryDetailsById = (id) => (dispatch) => {
       message.success("Something went wrong!!");
     });
 };
-export const getBookListById = (_id) => (dispatch) => {
+export const getBookList = () => (dispatch) => {
   dispatch({
     type: types.GET_BOOK_LIST_BY_ID_REQUEST,
   });
   axios
-    .get(`${base_url}/services/${_id}`)
+    .get(`${base_url}/books`)
     .then((res) => {      
       dispatch({
         type: types.GET_BOOK_LIST_BY_ID_SUCCESS,

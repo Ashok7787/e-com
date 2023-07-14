@@ -1,21 +1,22 @@
 import React, { useEffect } from "react";
-import Navbar from "../../components/Navbar";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import SlideView from "./SlideView";
 import { getAllCategory } from "./DashboardAction";
+import { getBookList } from "../Category/CategoryAction";
 import { Link } from "react-router-dom";
+import "react-slideshow-image/dist/styles.css";
+import AllBook from "../book/AllBook";
+
 function Dashboard(props) {
   useEffect(() => {
     props.getAllCategory();
   }, []);
-  console.log(props.category);
+
+  let categoryname;
   return (
     <>
-      <header>
-        <Navbar />
-      </header>
-      <div className="flex flex-row">
+      <div className="flex flex-row ">
         <h1 className="ml-2 mr-2">Books</h1>
         {props.category.map((element, value, array) => (
           <div className="vl">
@@ -25,20 +26,28 @@ function Dashboard(props) {
           </div>
         ))}
       </div>
-      <hr />
-      <SlideView />
+      <hr style={{ color: "red" }} />
+      <div className="m-5">
+        <SlideView />
+      </div>
+      <div className="m-5">
+        <AllBook />
+      </div>
+
       <footer></footer>
     </>
   );
 }
-const mapStateToProps = ({ dashboard }) => ({
+const mapStateToProps = ({ dashboard, category }) => ({
   category: dashboard.category,
+  bookList: category.bookList,
 });
 
 const mapDispatchToProps = (dispatch) =>
   bindActionCreators(
     {
       getAllCategory,
+      getBookList,
     },
     dispatch
   );
