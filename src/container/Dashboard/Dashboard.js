@@ -8,12 +8,20 @@ import { Link } from "react-router-dom";
 import "react-slideshow-image/dist/styles.css";
 import AllBook from "../book/AllBook";
 import { Suspense } from "react";
+import TrendingBook from "../book/TrendingBook";
+
+import { Slide } from "react-slideshow-image";
+import "react-slideshow-image/dist/styles.css";
+import Slider from "./Slider";
 
 function Dashboard(props) {
   useEffect(() => {
     props.getAllCategory();
   }, []);
   if (props.fetchingCategoryDetails) {
+    return <h1>Loading...</h1>;
+  }
+  if (props.fetchingBookListById) {
     return <h1>Loading...</h1>;
   }
   return (
@@ -32,6 +40,19 @@ function Dashboard(props) {
       <div>
         <SlideView />
       </div>
+      <div className="mr-20 ml-20">
+        <div className="pt-10 pb-10 ">
+          <p className="font-serif font-bold text-2xl">
+            <i>Now Trending</i>
+          </p>
+        </div>
+
+        <TrendingBook />
+      </div>
+      <div className="mr-20 ml-20 pt-10 pb-10">
+        <Slider />
+      </div>
+      
       <Suspense fallback={<div> Please Wait... </div>}>
         <div>
           {props.category.map((item) => (
@@ -48,8 +69,6 @@ function Dashboard(props) {
           ))}
         </div>
       </Suspense>
-
-      <footer></footer>
     </>
   );
 }

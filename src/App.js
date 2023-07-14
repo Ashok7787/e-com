@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import Dashboard from "./container/Dashboard/Dashboard";
 import CategoryBookById from "./container/Category/CategoryBookById";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

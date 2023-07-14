@@ -45,3 +45,24 @@ export const getBookList = () => (dispatch) => {
       message.success("Something went wrong!!");
     });
 };
+
+export const getBookDetails = () => (dispatch) => {
+  dispatch({
+    type: types.GET_BOOK_DETAILS_ID_REQUEST,
+  });
+  axios
+    .get(`${base_url}/books`)
+    .then((res) => {      
+      dispatch({
+        type: types.GET_BOOK_DETAILS_ID_SUCCESS,
+        payload: res.data,
+      });
+    })
+    .catch((err) => {
+      dispatch({
+        type: types.GET_BOOK_DETAILS_ID_FAILURE,
+        payload: err,
+      });
+      message.success("Something went wrong!!");
+    });
+};

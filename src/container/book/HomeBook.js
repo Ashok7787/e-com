@@ -4,31 +4,30 @@ const { Meta } = Card;
 
 function HomeBook(props) {
   const item = props.item;
-  console.log("single",item);
+  console.log("single", item);
   return (
     <>
-    <div className="shadow-black shadow-sm">
-      
+      <Card>
         <div
           style={{
             borderWidth: "1px",
             borderColor: "red",
-            height: "170px",
-            width: "100px",
+            height: "300px",
+            width: "200px",
+            padding:"10px"
           }}
         >
           <img src={`${item.image}`} alt="new" />
         </div>
         <Meta title={item.name} />
         <Space>{item.authorName}</Space>
-        <div className="flex flex-row">
-          <Space>{item.discountPrice}</Space>
+        <div className="flex flex-row justify-center">
+          <Space> <text className="text-red-600 text-lg font-semibold">&#x20B9;{item.discountPrice}</text></Space>
           <Space>
-            <text className="line-through">{item.price}</text>
+            <text className="line-through text-lg ml-2">&#x20B9;{item.price}</text>
           </Space>
         </div>
-     
-      </div>
+      </Card>
     </>
   );
 }

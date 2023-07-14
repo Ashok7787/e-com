@@ -6,6 +6,7 @@ import "react-slideshow-image/dist/styles.css";
 import { getBookList } from "../Category/CategoryAction";
 import { useEffect } from "react";
 import HomeBook from "./HomeBook";
+import Book from "./Book";
 
 function Allbook(props) {
   useEffect(() => {
@@ -45,10 +46,11 @@ function Allbook(props) {
           //slidesToScroll={5}
           slidesToShow={6}
           indicators={false}
+          autoplay={false}
         >
           {categoryBook.map((item) => (
             <div>
-              <HomeBook item={item} />
+              <Book item={item} />
             </div>
           ))}
         </Slide>

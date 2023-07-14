@@ -52,7 +52,7 @@ const menuProps = {
 
 function Navbar() {
   const [isHovered, setIsHovered] = useState(false);
- 
+
   const menuStyle = {
     boxShadow: "none",
   };
@@ -88,12 +88,12 @@ function Navbar() {
               }}
               dropdownRender={(menu) => (
                 <div className="shadow-sm shadow-black p-2">
-                   <Space
+                  <Space
                     style={{
                       padding: 8,
                     }}
                   >
-                    <Button  className="bg-red-500 w-fit">Log In</Button>
+                    <Button className="bg-red-500 w-fit">Log In</Button>
                   </Space>
                   {React.cloneElement(menu, {
                     style: menuStyle,
@@ -103,7 +103,6 @@ function Navbar() {
                       margin: 0,
                     }}
                   />
-                 
                 </div>
               )}
             >
