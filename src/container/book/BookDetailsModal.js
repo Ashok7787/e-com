@@ -14,7 +14,7 @@ function BookDetailsModal(props) {
             <CountBox />
           </div>
           <div>
-            <button className=" w-full rounded border border-red-600 text-red-600 bg-white text-xl self-end">
+            <button className=" w-full rounded border text-white bg-red-600 text-xl self-end">
               Add To Cart
             </button>
           </div>
