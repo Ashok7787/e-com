@@ -13,6 +13,7 @@ import TrendingBook from "../book/TrendingBook";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 import Slider from "./Slider";
+import CategorySlide from "../Main/CategorySlide";
 
 function Dashboard(props) {
   useEffect(() => {
@@ -27,19 +28,21 @@ function Dashboard(props) {
   return (
     <>
       <div className="flex flex-row ">
-        <h1 className="ml-2 mr-2">Books</h1>
+        {/* <h1 className="ml-2 mr-2">Books</h1>
         {props.category.map((element, value, array) => (
           <div className="vl">
             <Link to={`category/${element._id}`}>
               <h1 className="ml-2 mr-2">{element.category}</h1>
             </Link>
           </div>
-        ))}
+        ))} */}
       </div>
-      <hr style={{ color: "red" }} />
       <div>
         <SlideView />
       </div>
+      {/* <div className="mr-20 ml-20">
+        <CategorySlide />
+      </div> */}
       <div className="mr-20 ml-20">
         <div className="pt-10 pb-10 ">
           <p className="font-serif font-bold text-2xl">

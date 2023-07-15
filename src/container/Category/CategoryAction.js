@@ -46,12 +46,12 @@ export const getBookList = () => (dispatch) => {
     });
 };
 
-export const getBookDetails = () => (dispatch) => {
+export const getBookDetails = (id) => (dispatch) => {
   dispatch({
     type: types.GET_BOOK_DETAILS_ID_REQUEST,
   });
   axios
-    .get(`${base_url}/books`)
+    .get(`${base_url}/books/${id}`)
     .then((res) => {      
       dispatch({
         type: types.GET_BOOK_DETAILS_ID_SUCCESS,

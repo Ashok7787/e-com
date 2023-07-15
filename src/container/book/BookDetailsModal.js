@@ -10,9 +10,9 @@ function BookDetailsModal(props) {
           <div>
             <img src={`${item.image}`} alt="new" />
           </div>
-<div className="w-full">
-    <CountBox />
-</div>
+          <div className="w-full">
+            <CountBox />
+          </div>
           <div>
             <button className=" w-full rounded border border-red-600 text-red-600 bg-white text-xl self-end">
               Add To Cart

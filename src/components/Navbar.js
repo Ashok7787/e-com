@@ -87,10 +87,10 @@ function Navbar() {
                 items,
               }}
               dropdownRender={(menu) => (
-                <div className="shadow-sm shadow-black p-2">
+                <div className="shadow-sm shadow-black p-2 bg-white">
                   <Space
                     style={{
-                      padding: 8,
+                      padding: 8,backgroundColor: "white"
                     }}
                   >
                     <Button className="bg-red-500 w-fit">Log In</Button>

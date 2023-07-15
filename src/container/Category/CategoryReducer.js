@@ -8,6 +8,10 @@ const initialState = {
   fetchingBookListByIdError: false,
   bookList:[],
 
+  fetchingBookDetailsById: false,
+  fetchingBookDetailsByIdError: false,
+  bookDetails:{},
+
 };
 export const categoryReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -41,6 +45,22 @@ export const categoryReducer = (state = initialState, action) => {
         ...state,
         fetchingBookListById: false,
         fetchingBookListByIdError: true,
+      };
+
+      case types.GET_BOOK_DETAILS_ID_REQUEST:
+      return { ...state, fetchingBookDetailsById: true };
+    case types.GET_BOOK_DETAILS_ID_SUCCESS:
+      return {
+        ...state,
+        fetchingBookDetailsById: false,
+        bookDetails: action.payload,
+      };
+
+    case types.GET_BOOK_DETAILS_ID_FAILURE:
+      return {
+        ...state,
+        fetchingBookDetailsById: false,
+        fetchingBookDetailsByIdError: true,
       };
 
     default:

@@ -9,6 +9,10 @@
   height: 30px;
   margin-right: 5px;
 }
+:where(.css-dev-only-do-not-override-1m62vyb).ant-card .ant-card-body {
+  /* padding: 24px; */
+  border-radius: 0 0 8px 8px;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
