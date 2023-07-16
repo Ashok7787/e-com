@@ -16,6 +16,9 @@ import CategoryIdBookId from "./container/book/CategoryIdBookId";
 function App() {
   return (
     <div className="App">
+      <div className="w-full">
+
+      
       <Navbar  />
       <div className="mt-24">
       <CategoryHeader />
@@ -32,6 +35,7 @@ function App() {
       </Routes>
       {/* </Router> */}
       <Footer />
+      </div>
     </div>
   );
 }
