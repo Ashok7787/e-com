@@ -43,7 +43,7 @@ function Dashboard(props) {
         <SlideView />
       </div>:null}
       <div className="mx-20 my-10 max-[sm,md]:mx-5">
-        <CategorySlide screenSize={screenSize} />
+        <CategorySlide />
       </div>
       
       <div className="mx-20 max-[sm,md]:mx-5">
