@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logonav from "../Assets/Images/logonav.png";
 import { DownOutlined, UserOutlined } from "@ant-design/icons";
 import { Input, Button, Dropdown, message, Space, Divider } from "antd";
+import { Link } from "react-router-dom";
 const { Search } = Input;
 const handleMenuClick = (e) => {
   message.info("Click on menu item.");
@@ -65,7 +66,9 @@ function Navbar() {
       <nav className="w-full p-5 bg-slate-100 h-25 border-black flex flex-row justify-between">
         <div className="w-1/2 flex flex-row justify-start">
           <div className="w-1/3">
-            <img src={logonav} alt="Logo" height={50} width={50} />
+            <Link to={"/"}>
+              <img src={logonav} alt="Logo" height={50} width={50} />
+            </Link>
           </div>
           <div className="w-2/3">
             <Search
@@ -90,7 +93,8 @@ function Navbar() {
                 <div className="shadow-sm shadow-black p-2 bg-white">
                   <Space
                     style={{
-                      padding: 8,backgroundColor: "white"
+                      padding: 8,
+                      backgroundColor: "white",
                     }}
                   >
                     <Button className="bg-red-500 w-fit">Log In</Button>

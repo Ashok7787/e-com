@@ -11,6 +11,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BookDetails from "./container/book/BookDetails";
 import CategoryHeader from "./container/Main/CategoryHeader";
+import CategoryIdBookId from "./container/book/CategoryIdBookId";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/signin" element={<SignIn />} />
         <Route exact path="/category/:_id" element={<CategoryBookById />} />
         <Route exact path="/bookDetails/:_id" element={<BookDetails />} />
+        <Route exact path="/category/:_id/bookDetails/:_id" element={<CategoryIdBookId />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       {/* </Router> */}

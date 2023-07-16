@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { getCategoryDetailsById, getBookList } from "./CategoryAction";
 import { useParams } from "react-router-dom";
 import Book from "../book/Book";
+import NewBook from "../book/NewBook";
 
 function Category(props) {
   // Get ID from URL
@@ -13,6 +14,24 @@ function Category(props) {
   useEffect(() => {
     props.getCategoryDetailsById(params._id);
     props.getBookList();
+    // This code for Avoiding  "ResizeObserver loop limit exceeded" this Error-------------------------
+    window.addEventListener("error", (e) => {
+      if (e.message === "ResizeObserver loop limit exceeded") {
+        const resizeObserverErrDiv = document.getElementById(
+          "webpack-dev-server-client-overlay-div"
+        );
+        const resizeObserverErr = document.getElementById(
+          "webpack-dev-server-client-overlay"
+        );
+        if (resizeObserverErr) {
+          resizeObserverErr.setAttribute("style", "display: none");
+        }
+        if (resizeObserverErrDiv) {
+          resizeObserverErrDiv.setAttribute("style", "display: none");
+        }
+      }
+    });
+    //-------------------------------------------------------------------------------------------------------
   }, []);
   if (props.fetchingCategoryDetails) {
     return <h1>Loading..</h1>;
@@ -26,7 +45,7 @@ function Category(props) {
             .filter((item) => item.categotyName === categoryName)
             .map((item) => (
               <div >
-                <Book item={item} />
+                <NewBook item={item} categoryParams={params} />
               </div>
             ))}
         </div>
