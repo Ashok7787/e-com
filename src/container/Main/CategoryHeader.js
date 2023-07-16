@@ -25,9 +25,30 @@ function CategoryHeader(props) {
       <div className="flex justify-center">
         <img src="https://www.bookswagon.com/images/dealicon.png" />
       </div>
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-between mx-5 max-w-full">
         <div className="flex flex-row ">
-          <h1 className="ml-2 mr-2">Books</h1>
+          <div className="flex flex-row ml-2 mr-2 hover:cursor-pointer "
+           onClick={() => props.setCollapsed(!props.collapsed)}
+          >
+            <h1 className="">Books</h1>
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                />
+              </svg>
+            </span>
+          </div>
+
           {props.category.map((element, value, array) => (
             <div className="vl">
               <Link to={`category/${element._id}`}>
@@ -61,9 +82,7 @@ function CategoryHeader(props) {
       </div>
 
       <hr style={{ borderColor: "red" }} />
-      <div className=" w-fit h-fit">
-        <img src="https://www.bookswagon.com/images/promotionimages/web/1_alltimefavourite.jpg?v=1.6" />
-      </div>
+     
     </>
   );
 }

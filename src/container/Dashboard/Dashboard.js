@@ -16,6 +16,7 @@ import Slider from "./Slider";
 import CategorySlide from "../Main/CategorySlide";
 
 function Dashboard(props) {
+  const screenSize = props.screenSize;
   useEffect(() => {
     props.getAllCategory();
   }, []);
@@ -37,20 +38,22 @@ function Dashboard(props) {
           </div>
         ))} */}
       </div>
+      {screenSize.width >= 768 ?
       <div>
         <SlideView />
-      </div>
+      </div>:null}
       {/* <div className="mr-20 ml-20">
         <CategorySlide />
       </div> */}
+      
       <div className="mr-20 ml-20">
-        <div className="pt-10 pb-10 ">
+        <div className="pt-10 pb-10 max-sm:pt-0">
           <p className="font-serif font-bold text-2xl">
             <i>Now Trending</i>
           </p>
         </div>
 
-        <TrendingBook />
+        <TrendingBook screenSize={screenSize}/>
       </div>
       <div className="mr-20 ml-20 pt-10 pb-10">
         <Slider />
@@ -66,7 +69,7 @@ function Dashboard(props) {
                 </p>
               </div>
               <div className="mr-20 ml-20">
-                <AllBook item={item.category} />
+                <AllBook item={item.category} screenSize={screenSize}/>
               </div>
             </div>
           ))}

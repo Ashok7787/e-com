@@ -12,41 +12,74 @@ function Allbook(props) {
   useEffect(() => {
     props.getBookList();
     // This code for Avoiding  "ResizeObserver loop limit exceeded" this Error-------------------------
-    window.addEventListener('error', e => {
-      if (e.message === 'ResizeObserver loop limit exceeded') {
-          const resizeObserverErrDiv = document.getElementById(
-              'webpack-dev-server-client-overlay-div'
-          );
-          const resizeObserverErr = document.getElementById(
-              'webpack-dev-server-client-overlay'
-          );
-          if (resizeObserverErr) {
-              resizeObserverErr.setAttribute('style', 'display: none');
-          }
-          if (resizeObserverErrDiv) {
-              resizeObserverErrDiv.setAttribute('style', 'display: none');
-          }
+    window.addEventListener("error", (e) => {
+      if (e.message === "ResizeObserver loop limit exceeded") {
+        const resizeObserverErrDiv = document.getElementById(
+          "webpack-dev-server-client-overlay-div"
+        );
+        const resizeObserverErr = document.getElementById(
+          "webpack-dev-server-client-overlay"
+        );
+        if (resizeObserverErr) {
+          resizeObserverErr.setAttribute("style", "display: none");
+        }
+        if (resizeObserverErrDiv) {
+          resizeObserverErrDiv.setAttribute("style", "display: none");
+        }
       }
-  });
-  //-------------------------------------------------------------------------------------------------------
+    });
+    //-------------------------------------------------------------------------------------------------------
   }, []);
   const category = props.item;
-  console.log("new",category);
+  const screenSize = props.screenSize;
+  console.log("new", category);
   const categoryBook = props.bookList.filter(
     (item) => item.categotyName === category
   );
-  if(props.fetchingBookListById) {
+  if (props.fetchingBookListById) {
     return <h1>Loading...</h1>;
   }
- 
+
   return (
     <>
-      <div>
+      {screenSize.width >= 768 ? (
+        <div>
+          <Slide
+            //slidesToScroll={5}
+            slidesToShow={6}
+            indicators={false}
+            autoplay={false}
+          >
+            {categoryBook.map((item) => (
+              <div>
+                <Book item={item} />
+              </div>
+            ))}
+          </Slide>
+        </div>
+      ) : (
         <Slide
-          //slidesToScroll={5}
-          slidesToShow={6}
-          indicators={false}
-          autoplay={false}
+        slidesToScroll={1}
+        slidesToShow={1}
+        indicators={false}
+        autoplay={false}
+        arrows={true}
+        responsive={[
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+            },
+          },
+          {
+            breakpoint: 500,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+            },
+          },
+        ]}
         >
           {categoryBook.map((item) => (
             <div>
@@ -54,12 +87,12 @@ function Allbook(props) {
             </div>
           ))}
         </Slide>
-      </div>
+      )}
     </>
   );
 }
-const mapStateToProps = ({category }) => ({
-  fetchingBookListById:category.fetchingBookListById,
+const mapStateToProps = ({ category }) => ({
+  fetchingBookListById: category.fetchingBookListById,
   bookList: category.bookList,
 });
 

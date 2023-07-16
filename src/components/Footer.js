@@ -6,11 +6,12 @@ import {
   FaInstagramSquare,
 } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = (props) => {
+  const screenSize = props.screenSize;
   return (
-    <footer>
-         <div>
-        <div className="grid grid-cols-4">
+    <footer className="mb-0">
+         <div className="grid justify-items-stretch mx-10">
+        <div className="grid grid-cols-4 ">
           <div>
             <p className="text-red-600 text-lg font-semibold">Company</p>
             <div className="grid grid-cols-1">
@@ -65,9 +66,12 @@ const Footer = () => {
           </a>
         </Col>
       </Row>
+      <div className="flex justify-center">
       <text className="text-black text-lg font-semibold">
           Copyright © 2023 . BookCarrier.com. All Rights Reserved
         </text>
+      </div>
+     
     </footer>
   );
 };

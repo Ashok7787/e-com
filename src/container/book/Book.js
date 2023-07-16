@@ -23,35 +23,30 @@ function Book(props) {
   const percentage = Math.round(discount / (item.price / 100));
   return (
     <>
-      <div
-        className="rounded border p-2  m-1 hover:border-gray-400 hover:shadow-md hover:cursor-pointer"
+      <Card
+        className=" p-0 hover:cursor-pointer border hover:border-gray-400 hover:shadow-md "
         onMouseEnter={handleIconHover}
         onMouseLeave={handleIconHover}
       >
-        <Link to={`bookDetails/${item._id}`}>
-          <div
-            style={{
-              height: "250px",
-              maxHeight: "260",
-              // maxWidth: "200px",
-              minWidth: "180",
-
-              backgroundImage: `url(${item.image})`,
-            }}
-            className="grid justify-items-end"
-          >
-            <div class="rounded-full bg-red-600 h-10 w-10 flex justify-center items-center">
-              <p className="text-white text-sm font-semibold">
-                {percentage || 0}%
-              </p>
-            </div>
-            {/* <img src={`${item.image}`} alt="new" /> */}
+        <div className="flex justify-end -mr-6">
+        <div class="rounded-full bg-red-600 h-10 w-10 flex justify-center items-center">
+          <p className="text-white text-sm font-semibold">{percentage || 0}%</p>
+        </div>
+        </div>
+       <div className="flex justify-center">
+       <Link to={`bookDetails/${item._id}`}>
+          <div className="image-container">
+            <img src={`${item.image}`} alt="new" />
           </div>
         </Link>
+       </div>
+
+        
+
         {isHovered ? (
           <div style={{ marginTop: "-15%" }}>
             <button
-              className=" w-full rounded border border-red-600 text-red-600 bg-white self-end"
+              className=" w-full rounded border font-bold border-red-600 text-red-600 bg-white self-end"
               onClick={openModal}
             >
               Quick View
@@ -68,9 +63,11 @@ function Book(props) {
         >
           <BookDetailsModal item={item} />
         </Modal>
-        <Meta title={item.name} />
-        <Space>{item.authorName}</Space>
-        <div className="flex flex-row justify-center">
+        <div className="flex flex-col justify-center items-center">
+          <Space>{item.name}</Space>
+          <Space>{item.authorName}</Space>
+        </div>
+        <div className="flex justify-center items-center">
           <Space>
             <p className="text-red-600 text-lg font-semibold">
               &#x20B9;{item.discountPrice}
@@ -80,7 +77,8 @@ function Book(props) {
             <p className="line-through text-lg ml-2">&#x20B9;{item.price}</p>
           </Space>
         </div>
-      </div>
+       
+      </Card>
     </>
   );
 }

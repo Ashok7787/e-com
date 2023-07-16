@@ -63,10 +63,10 @@ function Navbar() {
   const onSearch = (value) => console.log(value);
   return (
     <>
-    <div style={{position:"fixed", zIndex: "9999",width: "100%",top:0}}>
-    <nav className="w-full p-5 bg-slate-100 h-25 border-black flex flex-row justify-between">
+    <div style={{position:"fixed", zIndex: "9999",top:0}} className="w-full">
+    <nav className="w-full p-5 bg-slate-100 h-16 border-black flex flex-row justify-between">
         <div className="w-1/2 flex flex-row justify-start">
-          <div className="w-1/3">
+          <div className="w-1/3 -mt-3">
             <Link to={"/"}>
               <img src={logonav} alt="Logo" height={50} width={50} />
             </Link>
@@ -130,9 +130,9 @@ function Navbar() {
                     />
                   </svg>
                 </span>
-                <a href="/">
-                  <span>My Account</span>
-                </a>
+                
+                  <span  onClick={handleIconHover}>My Account</span>
+                
               </div>
             </Dropdown>
 

@@ -39,8 +39,12 @@ function Category(props) {
   return (
     <>
       <div>
-        <h1>{props.categoryDetails.category}</h1>
-        <div className="grid grid-cols-5 gap-4">
+      <div className="flex justify-center py-5 max-sm:pt-0">
+          <p className="font-serif font-bold text-2xl">
+            <i>{props.categoryDetails.category}</i>
+          </p>
+        </div>
+        <div className="grid grid-cols-6 gap-4 mx-5">
           {props.bookList
             .filter((item) => item.categotyName === categoryName)
             .map((item) => (

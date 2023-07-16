@@ -29,27 +29,61 @@ function TrendingBook(props) {
     });
     //-------------------------------------------------------------------------------------------------------
   }, []);
-
+  const screenSize = props.screenSize;
   if (props.fetchingBookListById) {
     return <h1>Loading...</h1>;
   }
 
   return (
     <>
-      <div>
-        <Slide
-          //slidesToScroll={5}
-          slidesToShow={5}
-          indicators={false}
-          autoplay={false}
-        >
-          {props.bookList.map((item) => (
-            <div>
-              <HomeBook item={item} />
-            </div>
-          ))}
-        </Slide>
-      </div>
+      {screenSize.width >= 768 ? (
+        <div>
+          <Slide
+            //slidesToScroll={5}
+            slidesToShow={5}
+            indicators={false}
+            autoplay={false}
+          >
+            {props.bookList.map((item) => (
+              <div>
+                <HomeBook item={item} />
+              </div>
+            ))}
+          </Slide>
+        </div>
+      ) : (
+        <div>
+          <Slide
+            slidesToScroll={1}
+            slidesToShow={1}
+            indicators={false}
+            autoplay={false}
+            arrows={false}
+            responsive={[
+              {
+                breakpoint: 800,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 3,
+                },
+              },
+              {
+                breakpoint: 500,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 2,
+                },
+              },
+            ]}
+          >
+            {props.bookList.map((item) => (
+              <div>
+                <HomeBook item={item} />
+              </div>
+            ))}
+          </Slide>
+        </div>
+      )}
     </>
   );
 }
