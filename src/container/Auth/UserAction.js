@@ -4,7 +4,7 @@ import axios from "axios";
 import { message, notification } from "antd";
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
-export const login = (email, password, history) => (dispatch) => {
+export const login = (email, password) => (dispatch) => {
   dispatch({
     type: types.LOGIN_REQUEST,
   });
@@ -13,7 +13,7 @@ export const login = (email, password, history) => (dispatch) => {
 
     .then((res) => {
       console.log(res);
-     // history.push("/main");
+      history.push("/");
      dispatch(userDetails(res.data.accessToken));
       dispatch({
         type: types.LOGIN_SUCCESS,

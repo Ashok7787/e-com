@@ -16,8 +16,10 @@ import CategoryIdBookId from "./container/book/CategoryIdBookId";
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar  />
+      <div className="mt-24">
       <CategoryHeader />
+      </div>
       {/* <Router> */}
       <Routes>
         <Route exact path="/" element={<MainApp />} />

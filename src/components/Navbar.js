@@ -63,7 +63,8 @@ function Navbar() {
   const onSearch = (value) => console.log(value);
   return (
     <>
-      <nav className="w-full p-5 bg-slate-100 h-25 border-black flex flex-row justify-between">
+    <div style={{position:"fixed", zIndex: "9999",width: "100%",top:0}}>
+    <nav className="w-full p-5 bg-slate-100 h-25 border-black flex flex-row justify-between">
         <div className="w-1/2 flex flex-row justify-start">
           <div className="w-1/3">
             <Link to={"/"}>
@@ -97,7 +98,9 @@ function Navbar() {
                       backgroundColor: "white",
                     }}
                   >
-                    <Button className="bg-red-500 w-fit">Log In</Button>
+                    <Link to={"/signin"}>
+                      <Button className="bg-red-500 w-fit">Log In</Button>
+                    </Link>
                   </Space>
                   {React.cloneElement(menu, {
                     style: menuStyle,
@@ -190,6 +193,8 @@ function Navbar() {
           </span>
         </div>
       </nav>
+    </div>
+      
     </>
   );
 }

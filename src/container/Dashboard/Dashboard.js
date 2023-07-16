@@ -56,7 +56,7 @@ function Dashboard(props) {
         <Slider />
       </div>
       
-      <Suspense fallback={<div> Please Wait... </div>}>
+      {/* <Suspense fallback={<div> Please Wait... </div>}> */}
         <div>
           {props.category.map((item) => (
             <div>
@@ -71,7 +71,7 @@ function Dashboard(props) {
             </div>
           ))}
         </div>
-      </Suspense>
+      {/* </Suspense> */}
     </>
   );
 }
