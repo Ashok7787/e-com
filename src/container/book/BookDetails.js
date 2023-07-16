@@ -16,11 +16,9 @@ function BookDetails(props) {
   }
   return (
     <>
-      <div className="flex flex-row p-10 ml-20">
-        <div className=" w-1/4 flex flex-col gap-4">
-          <div>
-            <img src={`${item.image}`} alt="new" />
-          </div>
+      <div className="flex flex-row p-10 ml-20 max-[sm,md]:flex  max-[sm,md]:flex-col max-[sm,md]:ml-0   max-[sm,md]:p-0">
+        <div className="max-sm:w-full max-md:w-full ">
+          <img src={`${item.image}`} alt="new" />
         </div>
         <div className=" w-1/2 flex flex-col justify-start">
           <div>
@@ -33,7 +31,7 @@ function BookDetails(props) {
             <p className="font-serif font-bold text-xl">{item.description}</p>
           </div>
 
-          <div className="flex flex-row">
+          <div className="flex flex-row max-[sm,md]:flex-col">
             <button className=" w-full h-10 m-2 rounded text-white bg-red-600 text-xl self-end hover:bg-red-400">
               Buy Now
             </button>
@@ -48,7 +46,7 @@ function BookDetails(props) {
         <p className="font-serif font-bold text-2xl">
           <i>About the Book</i>
         </p>
-         <p>
+        <p>
           THE PHENOMENAL INTERNATIONAL BESTSELLER - 1 MILLION COPIES
           SOLDTransform your life with tiny changes in behaviour - starting now.
           People think that when you want to change your life, you need to think

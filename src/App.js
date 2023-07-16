@@ -52,7 +52,7 @@ function App(props) {
   return (
     <Layout>
       <div>
-        <Navbar />
+        <Navbar collapsed={collapsed} setCollapsed={setCollapsed} screenSize={screenSize}/>
 
         {screenSize.width >= 768 ? 
           <div className="mt-24">

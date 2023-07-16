@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { getCategoryDetailsById, getBookList } from "./CategoryAction";
@@ -39,16 +39,17 @@ function Category(props) {
   return (
     <>
       <div>
-      <div className="flex justify-center py-5 max-sm:pt-0">
+        <div className="flex justify-center py-5 max-sm:pt-20">
           <p className="font-serif font-bold text-2xl">
             <i>{props.categoryDetails.category}</i>
           </p>
         </div>
-        <div className="grid grid-cols-6 gap-4 mx-5">
+        {/* {screenSize.width >= 768 ? ( */}
+        <div className="grid grid-cols-6 gap-4 max-sm:grid-cols-1 max-md:grid-cols-1 mx-5">
           {props.bookList
             .filter((item) => item.categotyName === categoryName)
             .map((item) => (
-              <div >
+              <div>
                 <NewBook item={item} categoryParams={params} />
               </div>
             ))}

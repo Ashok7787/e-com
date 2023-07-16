@@ -42,12 +42,12 @@ function Dashboard(props) {
       <div>
         <SlideView />
       </div>:null}
-      {/* <div className="mr-20 ml-20">
-        <CategorySlide />
-      </div> */}
+      <div className="mx-20 my-10 max-[sm,md]:mx-5">
+        <CategorySlide screenSize={screenSize} />
+      </div>
       
-      <div className="mr-20 ml-20">
-        <div className="pt-10 pb-10 max-sm:pt-0">
+      <div className="mx-20 max-[sm,md]:mx-5">
+        <div className="px-10 max-[sm,md]:mt-10">
           <p className="font-serif font-bold text-2xl">
             <i>Now Trending</i>
           </p>
@@ -55,7 +55,7 @@ function Dashboard(props) {
 
         <TrendingBook screenSize={screenSize}/>
       </div>
-      <div className="mr-20 ml-20 pt-10 pb-10">
+      <div className="my-10 px-10 ">
         <Slider />
       </div>
       
@@ -63,12 +63,12 @@ function Dashboard(props) {
         <div>
           {props.category.map((item) => (
             <div>
-              <div className="pt-10 pb-10 ml-10 flex justify-start">
+              <div className="py-10 ml-10 flex justify-start max-[sm,md]:ml-5 max-[sm,md]:mr-5">
                 <p className="font-serif font-bold text-2xl">
                   <i>{item.category}</i>
                 </p>
               </div>
-              <div className="mr-20 ml-20">
+              <div className="mx-20 max-[sm,md]:mx-5 ">
                 <AllBook item={item.category} screenSize={screenSize}/>
               </div>
             </div>
