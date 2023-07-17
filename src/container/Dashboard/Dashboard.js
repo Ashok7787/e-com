@@ -26,6 +26,7 @@ function Dashboard(props) {
   if (props.fetchingBookListById) {
     return <h1>Loading...</h1>;
   }
+  const category = props.category;
   return (
     <>
       <div className="flex flex-row ">
@@ -59,9 +60,9 @@ function Dashboard(props) {
         <Slider />
       </div>
       
-      {/* <Suspense fallback={<div> Please Wait... </div>}> */}
-        <div>
-          {props.category.map((item) => (
+      <Suspense fallback={<div> Please Wait... </div>}>
+       
+          {category.map((item) => (
             <div>
               <div className="py-10 ml-10 flex justify-start max-[sm,md]:ml-5 max-[sm,md]:mr-5">
                 <p className="font-serif font-bold text-2xl">
@@ -73,8 +74,8 @@ function Dashboard(props) {
               </div>
             </div>
           ))}
-        </div>
-      {/* </Suspense> */}
+       
+      </Suspense>
     </>
   );
 }

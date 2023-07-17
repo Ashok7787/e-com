@@ -16,6 +16,7 @@ import { Layout, Space } from "antd";
 import { useState } from "react";
 import { useEffect } from "react";
 import Sidebar from "./container/Category/Sidebar";
+import AppErrorBoundary from "./components/AppErrorBoundary";
 const { Header, Sider, Content } = Layout;
 
 const siderStyle = {
@@ -62,6 +63,7 @@ function App(props) {
 
         <Layout hasSider>
           {collapsed ? <Sider style={siderStyle} onMouseLeave={() => setCollapsed(!collapsed)}><Sidebar /></Sider> : null}
+          <AppErrorBoundary>
           <Content className=" w-full">
             <Routes>
               <Route exact path="/" element={<MainApp />} />
@@ -81,6 +83,7 @@ function App(props) {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Content>
+          </AppErrorBoundary>
         </Layout>
         <Footer screenSize={screenSize} />
       </div>

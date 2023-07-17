@@ -16,7 +16,7 @@ function CategoryMenu(props) {
       window.location.reload();
     }
   }, [stateChanged]);
-  if (props.fetchingCategoryDetails) {
+  if (props.fetchingCategory) {
     return <h1>Loading...</h1>;
   }
 
@@ -57,7 +57,7 @@ function CategoryMenu(props) {
 }
 const mapStateToProps = ({ dashboard, category }) => ({
   category: dashboard.category,
-  fetchingCategoryDetails: category.fetchingCategoryDetails,
+  fetchingCategory: dashboard.fetchingCategory,
 });
 
 const mapDispatchToProps = (dispatch) =>
