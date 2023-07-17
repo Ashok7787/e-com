@@ -4,8 +4,8 @@
 
 
 //production
-const base_url = "https://bookshop-livid.vercel.app";
-const login_url = "https://bookshop-livid.vercel.app";
+const base_url = "https://api-books-nu.vercel.app";
+const login_url = "https://api-books-nu.vercel.app";
 
 
 
