@@ -32,7 +32,6 @@ function Allbook(props) {
   }, []);
   const category = props.item;
   const screenSize = props.screenSize;
-  console.log("new", category);
   const categoryBook = props.bookList.filter(
     (item) => item.categotyName === category
   );
